@@ -1,18 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('投稿一覧') }}
+            {{ __('会計管理') }}
         </h2>
     </x-slot>
 
     <div class="max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
         <div class="my-4">
             <a href="{{ route('post.create') }}" class="inline-block py-2 px-4 btn btn-primary text-decoration-none">
-                {{ __('投稿する') }}
+                {{ __('注文する') }}
             </a>
 
             <a href="{{ route('myposts') }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
-                {{ __('自分の投稿を確認する') }}
+                {{ __('商品の確認') }}
             </a>
         </div>
 
@@ -32,7 +32,7 @@
                 </ul>
             @else
                 <div class="flex justify-center items-center h-full">
-                    <p class="text-lg text-gray-600">投稿はありません。</p>
+                    <p class="text-lg text-gray-600">注文はありません。</p>
                 </div>
             @endif
         </div>

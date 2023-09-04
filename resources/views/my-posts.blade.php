@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('自分の投稿一覧') }}
+            {{ __('商品の確認') }}
         </h2>
     </x-slot>
 
     <div class="max-w-7xl mx-auto mt-10 sm:px-6 lg:px-8">
         <div class="my-4">
             <a href="{{ route('post.create') }}" class="btn btn-primary" role="button">
-                {{ __('新しい投稿') }}
+                {{ __('商品の追加') }}
             </a>
         </div>
 
@@ -38,7 +38,7 @@
             </div>
         @else
             <div class="flex justify-center items-center h-full">
-                <p class="text-lg text-gray-600">投稿はありません。</p>
+                <p class="text-lg text-gray-600">商品はありません。</p>
             </div>
         @endif
     </div>
