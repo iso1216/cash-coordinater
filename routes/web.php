@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CashController;
+use App\Http\Controllers\GoodsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +39,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/post/{id}', [PostController::class, 'update'])->name('post.update');
     Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
 
-    Route::get('/myposts', [PostController::class, 'myPosts'])->name('myposts');
+    Route::get('/order/index', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
+    Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 });
 
 require __DIR__.'/auth.php';

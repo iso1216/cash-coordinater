@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Goods extends Model
 {
     protected $fillable = ['name', 'cost'];
     public function order()

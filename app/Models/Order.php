@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Order extends Model
 {
     protected $fillable = ['num_of', 'goods_id', 'order_id'];
     public function goods()
