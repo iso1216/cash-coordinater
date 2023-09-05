@@ -1,4 +1,4 @@
-# Relicサマーインターン（25卒）のサンプルアプリ
+# 会計管理アプリ
 
 ## 初回セットアップ手順（上から順番に実行）
 
@@ -36,7 +36,7 @@ docker-compose stop
 ```
 
 ## URL
-サンプルアプリ：http://localhost/
+アプリ：http://localhost/
 
 phpMyAdmin: http://localhost:8080/
 
