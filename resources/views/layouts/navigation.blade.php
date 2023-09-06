@@ -12,8 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('order.index')" :active="request()->routeIs('order.index')" class="text-decoration-none">
-                        {{ __('会計管理') }}
+                <x-nav-link :href="route('order.index')" class="text-decoration-none">
+                        {{ __('会計一覧') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('goods.index')" class="text-decoration-none">
+                        {{ __('商品一覧') }}
                     </x-nav-link>
                 </div>
             </div>
