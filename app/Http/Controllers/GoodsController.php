@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Goods;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PostController extends Controller
+class GoodsController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('updated_at', 'desc')->get();
-        return view('post.index', compact('posts'));
+        $goods = Goods::orderBy('updated_at', 'desc')->get();
+        return view('goods.index', compact('goods'));
     }
 
     public function create()
     {
-        return view('post.create');
+        return view('goods.create');
     }
 
     public function store(Request $request)
@@ -33,12 +33,6 @@ class PostController extends Controller
         $post->save();
 
         return redirect()->route('post.index')->with('success', '投稿が作成されました');
-    }
-
-    public function myPosts()
-    {
-        $posts = Post::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
-        return view('my-posts', compact('posts'));
     }
 
     public function edit($id)
