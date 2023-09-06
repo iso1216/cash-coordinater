@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Goods;
+use App\Models\Cash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -29,22 +31,35 @@ class OrderController extends Controller
 
 	public function create()
 	{
-		return view('order.create');
+		$goods = Goods::orderBy('id')->get();
+		return view('order.create', compact('goods'));
 	}
 
 	public function store(Request $request)
 	{
-		$validatedData = $request->validate([
-			'num_of' => 'required|integer',
-		]);
+		$num = Goods::count();
+		$flg=0;
+		for ($i=1; $i <= $num; $i++) {
+			if ($request[$i] != 0) {
+				$flg=1;
+				break;
+			}
+		}
+		if ($flg!=0){
+			$cash = new Cash();
+			$cash->save();
+			$id = $cash->id;
 
-		$order = new Order();
-		$order->num_of = $validatedData['num_of'];
-		$order->goods_id = Auth::id();
-		$order->order_id = Auth::id();
-		$order->save();
-
-		return redirect()->route('order.index')->with('success', '投稿が作成されました');
+			for ($i=1; $i <= $num; $i++) {
+				if ($request[$i] == 0) continue;
+				$order = new Order();
+				$order->num_of = $request[$i];
+				$order->goods_id = $i;
+				$order->cash_id = $id;
+				$order->save();
+			}
+		}
+		return redirect()->route('order.index');
 	}
 }
 
