@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\CashController;
 use App\Http\Controllers\GoodsController;
 use Illuminate\Support\Facades\Route;
 
