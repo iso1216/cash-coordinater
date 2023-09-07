@@ -22,7 +22,7 @@
 				</ul>
 			@else
 				<div class="flex justify-center items-center h-full">
-					<p class="text-lg text-gray-600">注文はありません。</p>
+					<p class="text-lg text-gray-600">売上はありません。</p>
 				</div>
 			@endif
 		</div>
