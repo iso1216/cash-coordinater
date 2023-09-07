@@ -15,9 +15,16 @@
 			@if (!empty($goods))
 				<ul>
 					@foreach ($goods as $part_of_goods)
-						<li class=" flex mb-6 bg-white border rounded-lg p-4">
-							<h3 class="text-lg font-bold pr-4 border-r-4">{{ $part_of_goods->name }}</h3>
-							<p class="text-gray-1000 ml-4">単価{{ $part_of_goods->cost }}円</p>
+						<li class="flex justify-between mb-6 bg-white border rounded-lg p-4">
+							<div class="flex" >
+								<h3 class="text-xl font-bold pr-4 border-r-4">{{ $part_of_goods->name }}</h3>
+								<p class="ml-4 text-lg">単価{{ $part_of_goods->cost }}円</p>
+							</div>
+							<div class="flex h-fit">
+								<a href="{{ route('goods.edit', ['id' => $part_of_goods->id]) }}" class="btn btn-primary mr-2"
+									role="button">
+									{{ __('編集') }}
+								</a>
 						</li>
 					@endforeach
 				</ul>

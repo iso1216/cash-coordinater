@@ -6,8 +6,8 @@
 	</x-slot>
 
 	<div class="max-w-7xl mx-auto mt-10 sm:px-6 lg:px-8">
-		<div class="my-4">
-			<div class="bg-white shadow p-6 rounded-lg">
+		<div class="my-4 flex justify-center">
+			<div class="bg-white shadow p-6 rounded-lg w-1/2">
 				<form action="{{ route('goods.store') }}" method="post">
 					@csrf
 					<div class="mb-4">
@@ -16,7 +16,7 @@
 					</div>
 					<div class="mb-4">
 						<label for="cost" class="block text-gray-700 text-sm font-bold mb-2">単価</label>
-						<input type="text" name="cost" id="cost" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:border-indigo-500" required>
+						<input type="number" name="cost" id="cost" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:border-indigo-500" required>
 					</div>
 					<div class="flex justify-end">
 						<button type="submit" class="py-2 px-4 btn btn-primary">追加する</button>

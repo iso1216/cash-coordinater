@@ -33,5 +33,25 @@ class GoodsController extends Controller
 
         return redirect()->route('goods.index')->with('success', '商品が作成されました');
     }
+
+    public function edit($id)
+    {
+        $goods = Goods::findOrFail($id);
+        return view('goods.edit', compact('goods'));
+    }
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'cost' => 'required|integer',
+        ]);
+
+        $goods = Goods::findOrFail($id);
+        $goods->name = $validatedData['name'];
+        $goods->cost = $validatedData['cost'];
+        $goods->save();
+
+        return redirect()->route('goods.index')->with('success', '商品が更新されました');
+    }
 }
 
