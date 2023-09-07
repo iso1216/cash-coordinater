@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/goods/index', [GoodsController::class, 'index'])->name('goods.index');
     Route::get('/goods/create', [GoodsController::class, 'create'])->name('goods.create');
     Route::post('/goods/store', [GoodsController::class, 'store'])->name('goods.store');
+    Route::get('/goods/{id}', [GoodsController::class, 'edit'])->name('goods.edit');
+    Route::patch('/goods/{id}', [GoodsController::class, 'update'])->name('goods.update');
 
 });
 
