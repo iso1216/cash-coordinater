@@ -5,6 +5,9 @@
 			<div class="flex">
 				<!-- Navigation Links -->
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+				<x-nav-link :href="route('home')" class="text-decoration-none">
+						{{ __('トップページ') }}
+					</x-nav-link>
 					<x-nav-link :href="route('order.index')" class="text-decoration-none">
 						{{ __('会計一覧') }}
 					</x-nav-link>
@@ -14,12 +17,29 @@
 					<x-nav-link :href="route('order.confirm')" class="text-decoration-none">
 						{{ __('日ごと売上') }}
 					</x-nav-link>
+					<x-nav-link :href="route('spends.index')" class="text-decoration-none">
+						{{ __('支出一覧') }}
+					</x-nav-link>
 				</div>
 			</div>
 
 			<!-- Settings Dropdown -->
 			<div class="hidden sm:flex sm:items-center sm:ml-6">
+				<?php
+					use App\Models\Spends;
+					use App\Models\Order;
+					use Illuminate\Support\Facades\DB;
+
+					$orders = Order::select(DB::raw('cash_id, sum(num_of * cost) as cash_total, cash.created_at'))->join('goods', 'order.goods_id', '=', 'goods.id')->join('cash', 'order.cash_id', '=', 'cash.id')->groupBy('cash_id')->orderBy('cash_id', 'desc')->get();
+					$total_money = -Spends::sum('cost');
+					foreach ($orders as $order) {
+						$total_money += $order->cash_total;
+					}
+				?>
 				@auth
+				<div>
+					<p class="m-2 text-lg">収支計：{{ $total_money }}円</p>
+				</div>
 				<x-dropdown align="right" width="48">
 					<x-slot name="trigger">
 						<button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
