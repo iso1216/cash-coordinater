@@ -24,7 +24,6 @@ class OrderController extends Controller
 
 	public function detail($id)
 	{
-		//SELECT sum(num_of*cost), cash.created_at FROM `order` INNER JOIN goods ON order.goods_id = goods.id INNER JOIN cash ON order.cash_id = cash.id GROUP BY cash_id
 		$orders = Order::join('goods', 'order.goods_id', '=', 'goods.id')->join('cash', 'order.cash_id', '=', 'cash.id')->where('cash_id', $id)->orderBy('cash_id', 'desc')->get();
 		return view('order.detail', compact('orders'));
 	}
@@ -61,5 +60,27 @@ class OrderController extends Controller
 		}
 		return redirect()->route('order.index');
 	}
+	public function confirm()
+	{
+		$orders = Order::select(DB::raw('cash_id, sum(num_of * cost) as cash_total, cash.created_at'))->join('goods', 'order.goods_id', '=', 'goods.id')->join('cash', 'order.cash_id', '=', 'cash.id')->groupBy('cash_id')->orderBy('cash_id', 'desc')->get();
+		$sum_cash_days = (object) [
+			'0'   => 0,
+		];
+		$len=0;
+		$day = 0;
+		foreach ($orders as $order) {
+			$days = $order->created_at->format('Y/m/d');
+			if ($day == $days){
+				$sum_cash_days->$day += $order->cash_total;
+			} else {
+				$day = $days;
+				$sum_cash_days->$day = $order->cash_total;
+				$len++;
+			}
+		}
+		return view('order.confirm', compact('orders', 'sum_cash_days', 'len'));
+	}
+
+
 }
 

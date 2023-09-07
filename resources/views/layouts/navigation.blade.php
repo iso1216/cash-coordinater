@@ -11,6 +11,9 @@
                     <x-nav-link :href="route('goods.index')" class="text-decoration-none">
                         {{ __('商品一覧') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('order.confirm')" class="text-decoration-none">
+                        {{ __('日ごと売上') }}
+                    </x-nav-link>
                 </div>
             </div>
 
