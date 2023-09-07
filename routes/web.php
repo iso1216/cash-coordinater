@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GoodsController;
+use App\Http\Controllers\SpendsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/goods/store', [GoodsController::class, 'store'])->name('goods.store');
     Route::get('/goods/{id}', [GoodsController::class, 'edit'])->name('goods.edit');
     Route::patch('/goods/{id}', [GoodsController::class, 'update'])->name('goods.update');
+
+    Route::get('/spends/index', [SpendsController::class, 'index'])->name('spends.index');
+    Route::get('/spends/create', [SpendsController::class, 'create'])->name('spends.create');
+    Route::post('/spends/store', [SpendsController::class, 'store'])->name('spends.store');
 
 });
 
