@@ -11,10 +11,10 @@
 				<ul>
 					@foreach ($sum_cash_days as $day => $sum_cash_day)
 					@if ($day != 0)
-						<li class="mb-6 bg-white border rounded-lg p-4">
+						<li class="mb-2 bg-white border rounded-lg p-3">
 							<div class="flex" >
-								<h3 class="text-2xl font-bold pr-4 border-r-4">{{ $day }}</h3>
-								<p class="ml-4 text-2xl">売上{{ $sum_cash_day }}円</p>
+								<h3 class="text-xl font-bold pr-4 border-r-4 flex items-center my-0 w-36">{{ $day }}</h3>
+								<p class="ml-4 text-xl flex items-center my-0">売上{{ $sum_cash_day }}円</p>
 							</div>
 						</li>
 					@endif

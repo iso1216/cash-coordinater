@@ -18,11 +18,11 @@
 			@if (!empty($spends))
 				<ul>
 					@foreach ($spends as $spend)
-						<li class="flex relative mb-6 bg-white border rounded-lg p-4">
-							<div class="pt-2 pr-4 mr-8 border-r-4"><h3 class="text-2xl font-bold">{{ $spend->user_name }}</h3></div>
-							<div class="flex justify-between w-5/6 pt-2">
-								<p class="text-gray-1000 text-xl">{{ $spend->name }}</p>
-								<p class="text-gray-1000 text-lg pl-4">{{ $spend->cost }}円</p>
+						<li class="flex relative mb-2 bg-white border rounded-lg p-3">
+							<div class="pr-4 mr-8 border-r-4 w-24"><h3 class="text-2xl font-bold flex items-center my-0">{{ $spend->user_name }}</h3></div>
+							<div class="flex justify-between w-5/6">
+								<p class="text-gray-1000 text-xl flex items-center m-0">{{ $spend->name }}</p>
+								<p class="text-gray-1000 text-lg pl-4 flex items-center m-0">{{ $spend->cost }}円</p>
 							</div>
 						</li>
 					@endforeach

@@ -9,9 +9,9 @@
     <div class="my-4 relative">
       <ul>
         @foreach ($orders as $order)
-          <li class="flex justify-between mb-6 bg-white border rounded-lg px-4 pt-2">
-            <p class="text-2xl">{{ $order->name }}</p>
-            <p class="test-xl pt-2">{{ $order->num_of }}個</p>
+          <li class="flex justify-between mb-2 bg-white border rounded-lg px-4 px-4">
+            <p class="text-2xl flex items-center my-2">{{ $order->name }}</p>
+            <p class="test-xl flex items-center my-0">{{ $order->num_of }}個</p>
           </li>
         @endforeach
       </ul>
