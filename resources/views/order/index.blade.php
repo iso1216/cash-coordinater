@@ -1,7 +1,7 @@
 <x-app-layout>
 	<x-slot name="header">
-		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-			{{ __('会計一覧') }}
+		<h2 class="font-semibold text-lg text-slate-50 leading-tight m-0">
+			{{ __('注文一覧') }}
 		</h2>
 	</x-slot>
 
@@ -11,12 +11,12 @@
 				{{ __('会計追加') }}
 			</a>
 
-			<h3 class="absolute right-4 top-0 ">総売上{{ $sum_cash_total }}円</h3>
+			<h3 class="absolute right-4 top-0 text-slate-50">総売上{{ $sum_cash_total }}円</h3>
 		</div>
 
 		<div class="my-4">
 			@if (!empty($orders))
-				<ul>
+				<ul class="px-6">
 					@foreach ($orders as $order)
 						<li class="flex relative mb-2 bg-white border rounded-lg p-3">
 							<div class="pt-2 pr-4 mr-8 border-r-4 w-20"><h3 class="text-2xl font-bold">{{ $order->cash_id }}</h3></div>

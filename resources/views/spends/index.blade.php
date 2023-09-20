@@ -1,6 +1,6 @@
 <x-app-layout>
 	<x-slot name="header">
-		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
+		<h2 class="font-semibold text-lg text-slate-50 leading-tight m-0">
 			{{ __('支出一覧') }}
 		</h2>
 	</x-slot>
@@ -11,12 +11,12 @@
 				{{ __('支出追加') }}
 			</a>
 
-			<h3 class="absolute right-4 top-0 ">総支出{{ $sum_cost_total }}円</h3>
+			<h3 class="absolute right-4 top-0 text-slate-50">総支出{{ $sum_cost_total }}円</h3>
 		</div>
 
 		<div class="my-4">
 			@if (!empty($spends))
-				<ul>
+				<ul class="px-6">
 					@foreach ($spends as $spend)
 						<li class="flex relative mb-2 bg-white border rounded-lg p-3">
 							<div class="pr-4 mr-8 border-r-4 w-24"><h3 class="text-2xl font-bold flex items-center my-0">{{ $spend->user_name }}</h3></div>

@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('注文') }}
-        </h2>
-    </x-slot>
+		<h2 class="font-semibold text-lg text-slate-50 leading-tight m-0">
+			{{ __('注文追加') }}
+		</h2>
+	</x-slot>
 
     <div class="max-w-7xl mx-auto mt-10 sm:px-6 lg:px-8">
         <div class="my-4 flex justify-center">

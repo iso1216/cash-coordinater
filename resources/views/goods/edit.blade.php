@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('商品編集') }}
-        </h2>
-    </x-slot>
+		<h2 class="font-semibold text-lg text-slate-50 leading-tight m-0">
+			{{ __('商品編集') }}
+		</h2>
+	</x-slot>
 
     <div class="container mt-10">
         <div class="row justify-content-center">

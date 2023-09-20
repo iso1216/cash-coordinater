@@ -1,6 +1,6 @@
 <x-app-layout>
 	<x-slot name="header">
-		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
+		<h2 class="font-semibold text-lg text-slate-50 leading-tight m-0">
 			{{ __('商品一覧') }}
 		</h2>
 	</x-slot>
@@ -13,7 +13,7 @@
 
 		<div class="my-4">
 			@if (!empty($goods))
-				<ul>
+				<ul class="px-6">
 					@foreach ($goods as $part_of_goods)
 						<li class="flex justify-between mb-2 bg-white border rounded-lg p-3">
 							<div class="flex" >

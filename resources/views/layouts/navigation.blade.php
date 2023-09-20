@@ -1,23 +1,23 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-slate-600 border-b border-black">
 	<!-- Primary Navigation Menu -->
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex justify-between h-16">
 			<div class="flex">
 				<!-- Navigation Links -->
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-				<x-nav-link :href="route('home')" class="text-decoration-none">
+					<x-nav-link :href="route('home')" class="text-decoration-none text-slate-50">
 						{{ __('トップページ') }}
 					</x-nav-link>
-					<x-nav-link :href="route('order.index')" class="text-decoration-none">
+					<x-nav-link :href="route('order.index')" class="text-decoration-none text-slate-50">
 						{{ __('会計一覧') }}
 					</x-nav-link>
-					<x-nav-link :href="route('goods.index')" class="text-decoration-none">
+					<x-nav-link :href="route('goods.index')" class="text-decoration-none text-slate-50">
 						{{ __('商品一覧') }}
 					</x-nav-link>
-					<x-nav-link :href="route('order.confirm')" class="text-decoration-none">
+					<x-nav-link :href="route('order.confirm')" class="text-decoration-none text-slate-50">
 						{{ __('日ごと売上') }}
 					</x-nav-link>
-					<x-nav-link :href="route('spends.index')" class="text-decoration-none">
+					<x-nav-link :href="route('spends.index')" class="text-decoration-none text-slate-50">
 						{{ __('支出一覧') }}
 					</x-nav-link>
 				</div>
@@ -38,7 +38,7 @@
 				?>
 				@auth
 				<div>
-					<p class="m-2 text-lg">収支計：{{ $total_money }}円</p>
+					<p class="m-2 text-lg  text-slate-50">収支計：{{ $total_money }}円</p>
 				</div>
 				<x-dropdown align="right" width="48">
 					<x-slot name="trigger">
@@ -73,11 +73,11 @@
 				</x-dropdown>
 				@else
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-nav-link :href="route('register')" :active="request()->routeIs('register')" class="text-decoration-none">
+					<x-nav-link :href="route('register')" :active="request()->routeIs('register')" class="text-decoration-none text-slate-50">
 						{{ __('Register') }}
 					</x-nav-link>
 
-					<x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="text-decoration-none">
+					<x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="text-decoration-none text-slate-50">
 						{{ __('Login') }}
 					</x-nav-link>
 				</div>
