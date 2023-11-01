@@ -36,24 +36,24 @@ class OrderController extends Controller
 
 	public function store(Request $request)
 	{
-		$num = Goods::count();
+		$num = Goods::select('id')->get();
 		$flg=0;
-		for ($i=1; $i <= $num; $i++) {
-			if ($request[$i] != 0) {
+		foreach ($num as $value) {
+			if ($request[$value['id']] != 0) {
 				$flg=1;
 				break;
 			}
-		}
+		} 
 		if ($flg!=0){
 			$cash = new Cash();
 			$cash->save();
 			$id = $cash->id;
 
-			for ($i=1; $i <= $num; $i++) {
-				if ($request[$i] == 0) continue;
+			foreach ($num as $value) {
+				if ($request[$value['id']] == 0) continue;
 				$order = new Order();
-				$order->num_of = $request[$i];
-				$order->goods_id = $i;
+				$order->num_of = $request[$value['id']];
+				$order->goods_id = $value['id'];
 				$order->cash_id = $id;
 				$order->save();
 			}
