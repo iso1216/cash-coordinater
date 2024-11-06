@@ -30,7 +30,29 @@ docker-compose up -d
 docker-compose exec laravel.test npm run dev
 ```
 
+## 停止方法
+
+```sh
+docker-compose down
+```
+
 ## URL
 アプリ：http://localhost/
 
 phpMyAdmin: http://localhost:8080/
+
+## コマンドリファレンス
+
+```sh
+# MySQLコンソールにログイン
+docker-compose exec mysql mysql -u sail -p'password' example_app
+
+# キャッシュ削除
+docker-compose exec laravel.test php artisan cache:clear
+docker-compose exec laravel.test php artisan config:clear
+docker-compose exec laravel.test php artisan route:clear
+docker-compose exec laravel.test php artisan view:clear
+docker-compose exec laravel.test php artisan clear-compiled
+
+# Laravel実行コンテナにログイン
+docker-compose exec laravel.test /bin/bash
